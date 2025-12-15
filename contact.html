@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Advertised Hub</title>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Contact Advertised Hub</h1>
+
+ <!-- Navigation bar -->
+ <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="service.html">Services</a></li>
+
+    </ul>
+</nav>
+
+
+    </header>
+    
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-intro">
+                <h2>Get in Touch</h2>
+                <p>Thank you for visiting <strong>Advertised Hub</strong>. We are here to help you with any questions or support you may need regarding our website advertising platform. Whether you are looking to promote your website or need assistance with adding your URL, feel free to contact us.</p>
+                <p>Please use the contact form below or reach out to us via email or phone. Our team is committed to responding promptly and assisting you with all your inquiries.</p>
+            </div>
+
+            <div class="contact-form">
+                <h2>Contact Form</h2>
+                <form id="contactForm">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+                    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-details">
+                <h2>Contact Information</h2>
+                <p><strong>Email:</strong> support@advertisedhub.com</p>
+                <p><strong>Phone:</strong> +1-234-567-890</p>
+                <p><strong>Address:</strong> 123 Web Street, Online City, Internet 12345</p>
+                <p>We are available Monday to Friday from 9:00 AM to 6:00 PM (GMT).</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Advertised Hub. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get user input
+            let userName = document.getElementById("name").value;
+            let userEmail = document.getElementById("email").value;
+            let userMessage = document.getElementById("message").value;
+
+            // Create an object to store the data
+            let contactData = {
+                name: userName,
+                email: userEmail,
+                message: userMessage
+            };
+
+            // Store the data in local storage
+            localStorage.setItem("contactInfo", JSON.stringify(contactData));
+
+            // Display a confirmation message
+            alert("Thank you for contacting Advertised Hub. Your message has been saved!");
+
+            // Clear form fields after submission
+            document.getElementById("contactForm").reset();
+        });
+
+        // Optional: Display the stored data on page reload (for testing purposes)
+        window.addEventListener("load", function() {
+            let storedData = localStorage.getItem("contactInfo");
+            if (storedData) {
+                let contactInfo = JSON.parse(storedData);
+                console.log("Stored contact info:", contactInfo);
+            }
+        });
+    </script>
+
+    <script src="js/contact.js"></script>
+</body>
+</html>
